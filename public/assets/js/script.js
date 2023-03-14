@@ -14,7 +14,7 @@ document.querySelector("#maRecherche").addEventListener("keyup", (e) => {
 
     .then((jsonResponse) => {
       jsonResponse.map((value) => {
-        reponseHTML.innerHTML += `<div>${value.employee_id} - ${value.first_name} - ${value.last_name}</div>`;
+        reponseHTML.innerHTML += `<div>${value.year} - ${value.titlte} - ${value.plot}</div>`;
       });
     });
 });

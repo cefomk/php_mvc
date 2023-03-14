@@ -1,4 +1,4 @@
-body {
-    background-color: brown;
-    color: aliceblue;
+#maRecherche input {
+    padding: 0.8rem 0.3rem;
+    width:300px;
 }
