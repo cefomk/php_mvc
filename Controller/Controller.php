@@ -9,4 +9,4 @@ $resultats = $conn->select("SELECT * FROM `employees` WHERE last_name LIKE ? OR 
 ["%{$_POST["recherche"]}%","%{$_POST["recherche"]}%"]
 );
 
-echo json_decode(count($resultats) == 0 ? null : $resultats);
+echo json_encode(count($resultats) == 0 ? null : $resultats);
