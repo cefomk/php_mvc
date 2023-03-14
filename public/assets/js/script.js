@@ -1,6 +1,6 @@
 const reponseHTML = document.querySelector("#resultatsDiv");
 
-document.querySelector("#maRecherche").addEventListener("submit", (e) => {
+document.querySelector("#maRecherche").addEventListener("keyup", (e) => {
   
   e.preventDefault();
   reponseHTML.innerHTML = "";
@@ -13,9 +13,7 @@ document.querySelector("#maRecherche").addEventListener("submit", (e) => {
     })
 
     .then((jsonResponse) => {
-      console.dir(jsonResponse);
-      jsonResponse.recherche.map((value) => {
-        console.log(value.name);
+      jsonResponse.map((value) => {
         reponseHTML.innerHTML += `<div>${value.employee_id} - ${value.first_name} - ${value.last_name}</div>`;
       });
     });

@@ -5,8 +5,12 @@ include '../Model/Model.php';
 ["%{$_POST["recherche"]}%","%{$_POST["recherche"]}%"]
 );*/
 
-$resultats = $conn->select("SELECT * FROM `employees` WHERE last_name LIKE ? OR first_name LIKE ?",
-["%{$_GET["query"]}%","%{$_GET["query"]}%"]
-);
+if(isset($_GET['query']) && !is_numeric($_GET['query'])) :
 
-echo json_encode(count($resultats) == 0 ? null : $resultats);
+    $resultats = $conn->select("SELECT * FROM `employees` WHERE last_name LIKE ? OR first_name LIKE ?",
+    ["%{$_GET["query"]}%","%{$_GET["query"]}%"]
+    );
+
+    echo json_encode(count($resultats) == 0 ? null : $resultats);
+
+endif;
