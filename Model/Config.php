@@ -3,7 +3,8 @@
 class Config
 {
     const DBHOST = 'localhost';
-    const DBNAME = 'netflix';
+    const DBNAME = 'company';
     const DBUSER = 'root';
-    CONST DBPWD = '';
+    const DBPWD = '';
+    const DBCHARSET = 'utf8mb4';
 }
