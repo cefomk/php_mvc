@@ -1,18 +1,22 @@
-function doRecherche()
-{
-   let data = new FormData(document.getElementById("maRecherche"));
-   
-   fetch("http://localhost/php_mvc/Controller/Controller.php", { method:"POST", body:data })
-   .then (res => res.json())
-   .then (res => {
-    let resultats = document.getElementById("resultatsDiv");
-    if (res !== null) {
-        for (let r of res)
-        {
-            resultats.innerHTML += `<div>${r.employee_id} - ${r.first_name} - ${r.last_name}</div>`;
-        }
-    }
-   });
-   
-   return false;
-}
+const reponseHTML = document.querySelector("#resultatsDiv");
+
+document.querySelector("#maRecherche").addEventListener("submit", (e) => {
+  
+  e.preventDefault();
+  reponseHTML.innerHTML = "";
+
+  let recherche = document.querySelector("#recherche").value;
+
+  fetch("http://localhost/php_mvc/Controller/Controller.php?query=" + recherche)
+    .then((reponse) => {
+      return reponse.json();
+    })
+
+    .then((jsonResponse) => {
+      console.dir(jsonResponse);
+      jsonResponse.recherche.map((value) => {
+        console.log(value.name);
+        reponseHTML.innerHTML += `<div>${value.employee_id} - ${value.first_name} - ${value.last_name}</div>`;
+      });
+    });
+});
