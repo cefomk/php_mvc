@@ -14,7 +14,7 @@ document.querySelector("#maRecherche").addEventListener("keyup", (e) => {
 
     .then((jsonResponse) => {
       jsonResponse.map((value) => {
-        reponseHTML.innerHTML += `<div>${value.year} - ${value.titlte} - ${value.plot}</div>`;
+        reponseHTML.innerHTML += `<div>${value.year} - ${value.title} - ${value.plot}</div>`;
       });
     });
 });
