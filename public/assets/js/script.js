@@ -1,1 +1,4 @@
-console.log('Coucou');
+function doRecherche()
+{
+    console.log('Recherche ...');
+}
